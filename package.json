@@ -1,0 +1,82 @@
+{
+    "name": "thohol",
+    "version": "1.0.0",
+    "description": "[![Netlify Status](https://api.netlify.com/api/v1/badges/5a134591-3f58-46de-8794-c2304c3ad4b6/deploy-status)](https://app.netlify.com/sites/keen-goldwasser-a7f6c5/deploys)",
+    "private": true,
+    "scripts": {
+        "start": "webpack-dev-server --config webpack.config.dev.js --port 7742",
+        "build": "webpack -p --config webpack.config.prod.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/tholst/thohol.git"
+    },
+    "author": "Thomas Holst",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/tholst/thohol/issues"
+    },
+    "homepage": "https://github.com/tholst/thohol#readme",
+    "dependencies": {
+        "@babel/cli": "^7.7.0",
+        "@babel/core": "^7.7.2",
+        "@babel/preset-env": "^7.7.1",
+        "@babel/preset-react": "^7.7.0",
+        "babel-loader": "^8.0.6",
+        "css-loader": "^3.2.0",
+        "eslint-loader": "^3.0.2",
+        "html-webpack-plugin": "^3.2.0",
+        "react": "^16.11.0",
+        "react-dom": "^16.11.0",
+        "style-loader": "^1.0.0",
+        "webpack": "^4.41.2",
+        "webpack-cli": "^3.3.10"
+    },
+    "devDependencies": {
+        "babel-eslint": "^10.0.3",
+        "eslint": "^6.6.0",
+        "eslint-plugin-import": "^2.18.2",
+        "eslint-plugin-react": "^7.16.0",
+        "webpack-dev-server": "^3.9.0"
+    },
+    "babel": {
+        "presets": [
+            "@babel/preset-env",
+            "@babel/preset-react"
+        ]
+    },
+    "eslintConfig": {
+        "extends": [
+            "eslint:recommended",
+            "plugin:react/recommended",
+            "plugin:import/errors",
+            "plugin:import/warnings"
+        ],
+        "parser": "babel-eslint",
+        "parserOptions": {
+            "ecmaVersion": 2018,
+            "sourceType": "module",
+            "ecmaFeatures": {
+                "jsx": true
+            }
+        },
+        "env": {
+            "browser": true,
+            "node": true,
+            "es6": true,
+            "jest": true
+        },
+        "rules": {
+            "no-debugger": "off",
+            "no-console": "off",
+            "no-unused-vars": "warn",
+            "react/prop-types": "warn"
+        },
+        "settings": {
+            "react": {
+                "version": "detect"
+            }
+        },
+        "root": true
+    }
+}
