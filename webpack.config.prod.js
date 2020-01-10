@@ -18,18 +18,30 @@ module.exports = {
                 loader: ["babel-loader", "eslint-loader"]
             },
             {
+                test: /\.val\.js$/,
+                use: ["val-loader"]
+            },
+            {
                 test: /\.css$/,
                 use: ["style-loader", "css-loader"]
             },
             {
                 test: /\.mdx?$/,
-                use: ["babel-loader", "@mdx-js/loader"]
+                use: [
+                    {
+                        loader: "babel-loader"
+                    },
+                    {
+                        loader: "@mdx-js/loader"
+                    }
+                ]
             }
         ]
     },
     resolve: { extensions: ["*", ".js", ".jsx"] },
     devServer: {
-        stats: "minimal"
+        stats: "minimal",
+        historyApiFallback: true
     },
     plugins: [
         new HtmlWebpackPlugin({

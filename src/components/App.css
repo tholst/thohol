@@ -1,7 +1,73 @@
 h1 {
-    color:green;
+    color: green;
+}
+
+.header {
+    max-width: 49rem;
+    height: 3rem;
+    margin: auto;
+    width: 100%;
+    border-bottom: 1px solid black;
+    padding: 0 0.5rem;
+    /* border: 1px solid black; */
+}
+/* 
+.header > * {
+    margin: 5px;
+} */
+
+.header-nav {
+    height: 3rem;
+    /* border: 1px solid blue; */
+}
+
+.header-nav ul {
+    /* height: 3rem; */
+    text-align: right;
+}
+
+.header-nav li {
+    /* height: 3rem; */
+    display: inline-block;
+    margin: 1rem 0rem 1rem 1rem;
+}
+
+ol ol {
+    list-style-type: lower-alpha;
+}
+
+ol ol ol {
+    list-style-type: lower-roman;
 }
 
 .content {
     max-width: 40rem;
+    margin: auto;
+}
+
+.hbox {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    /* border: 3px solid blue; */
+}
+
+.vbox {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* align-items: center; */
+    /* border: 3px solid blue; */
+}
+
+.nolist {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.flexitem {
+    flex: 1 0 auto;
+    /* border: 2px dotted orange; */
 }

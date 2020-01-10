@@ -1,17 +1,17 @@
 import React from "react";
 import "./App.css";
-import Post3 from "../../content/blog/3_React-Dev-Environment-Setup/post.md";
+import ArticlesList from "./ArticleList";
+import Header from "./Header";
 
 function App() {
     return (
-        <>
+        <div className="vbox">
             {/* <h1>There is nothing here yet.</h1> */}
+            <Header className="flexitem" />
             <div className="content">
-                <article>
-                    <Post3 />
-                </article>
+                <ArticlesList />
             </div>
-        </>
+        </div>
     );
 }
 

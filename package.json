@@ -5,6 +5,7 @@
     "private": true,
     "scripts": {
         "start": "webpack-dev-server --config webpack.config.dev.js --port 7742",
+        "webpack-debug": "webpack --config webpack.config.dev.js --profile --json > compilation-stats.json",
         "build": "webpack -p --config webpack.config.prod.js"
     },
     "repository": {
@@ -26,10 +27,15 @@
         "babel-loader": "^8.0.6",
         "css-loader": "^3.2.1",
         "eslint-loader": "^3.0.3",
+        "glob": "^7.1.6",
+        "gray-matter": "^4.0.2",
         "html-webpack-plugin": "^3.2.0",
         "react": "^16.12.0",
         "react-dom": "^16.12.0",
+        "react-router": "^5.1.2",
+        "react-router-dom": "^5.1.2",
         "style-loader": "^1.0.1",
+        "val-loader": "^2.1.0",
         "webpack": "^4.41.2",
         "webpack-cli": "^3.3.10"
     },
