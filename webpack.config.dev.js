@@ -8,7 +8,8 @@ module.exports = {
     mode: "development",
     output: {
         filename: "bundle.js",
-        path: path.resolve(__dirname, "build")
+        path: path.resolve(__dirname, "build"),
+        publicPath: "/"
     },
     module: {
         rules: [
@@ -32,7 +33,7 @@ module.exports = {
                         loader: "babel-loader"
                     },
                     {
-                        loader: "@mdx-js/loader"
+                        loader: "mdx-loader"
                     }
                 ]
             }
@@ -41,7 +42,11 @@ module.exports = {
     resolve: { extensions: ["*", ".js", ".jsx"] },
     devServer: {
         // stats: "minimal",
-        historyApiFallback: true
+        // contentBase: ".",
+        historyApiFallback: true,
+        // historyApiFallback: {
+        //     rewrites: [{ from: /^\/posts\/.*/, to: "/" }]
+        // }
     },
     plugins: [
         new HtmlWebpackPlugin({

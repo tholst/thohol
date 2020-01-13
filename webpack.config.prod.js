@@ -8,7 +8,8 @@ module.exports = {
     mode: "production",
     output: {
         filename: "bundle.js",
-        path: path.resolve(__dirname, "build")
+        path: path.resolve(__dirname, "build"),
+        publicPath: "/"
     },
     module: {
         rules: [
@@ -32,7 +33,7 @@ module.exports = {
                         loader: "babel-loader"
                     },
                     {
-                        loader: "@mdx-js/loader"
+                        loader: "mdx-loader"
                     }
                 ]
             }
