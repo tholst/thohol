@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import ArticlesList from "./ArticleList";
 import Header from "./Header";
+import { Route, Switch, Redirect } from "react-router-dom";
 
 function App() {
     return (
@@ -9,7 +10,14 @@ function App() {
             {/* <h1>There is nothing here yet.</h1> */}
             <Header className="flexitem" />
             <div className="content">
-                <ArticlesList />
+                <Switch>
+                    <Route path="/posts">
+                        <ArticlesList />
+                    </Route>
+                    <Route path="/">
+                        <Redirect to="/posts" />
+                    </Route>
+                </Switch>
             </div>
         </div>
     );
