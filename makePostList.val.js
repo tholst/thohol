@@ -15,7 +15,7 @@ const p = new Promise((resolve, reject) => {
             .map((file, i) =>
                 Object.assign(file.data, {
                     filepath: files[i].replace("content/blog", "."),
-                    id: files[i].replace(/^.*\//, "").substring(0, 20)
+                    id: files[i].replace(/^.*\//, "").replace(/\..*$/, "").substring(0, 20)
                 })
             );
 

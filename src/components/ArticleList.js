@@ -6,6 +6,8 @@ import {
     useRouteMatch,
     useParams
 } from "react-router-dom";
+
+// dynamically import markdown docs from content/blog/*/
 import articleMetadata from "../../makePostList.val.js";
 const articleRequireContext = require.context(
     "../../content/blog/",
@@ -16,6 +18,13 @@ const articleCache = {};
 articleMetadata.forEach(article => {
     articleCache[article.id] = articleRequireContext(article.filepath);
 });
+
+// dynamically import images from content/blog/*/
+require.context(
+    "../../content/blog/",
+    true,
+    /\/.*\/[^/]*\.(png|jpg|jpeg|gif)$/
+);
 
 const List = () => {
     let match = useRouteMatch();
