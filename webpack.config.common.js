@@ -39,12 +39,46 @@ module.exports = {
                 ]
             },
             {
-                test: /\.(png|jpg|gif)$/i,
+                test: /\.(png|jpe?g|gif|svg)$/i,
                 use: [
                     {
                         loader: "file-loader",
                         options: {
                             name: "posts/[name].[ext]"
+                        }
+                    },
+                    {
+                        loader: "image-webpack-loader",
+                        options: {
+                            mozjpeg: {
+                                progressive: true,
+                                quality: 65
+                            },
+                            optipng: {
+                                enabled: false
+                            },
+                            pngquant: {
+                                quality: [0.65, 0.9],
+                                speed: 4
+                            },
+                            gifsicle: {
+                                interlaced: false,
+                                optimizationLevel: 3
+                            },
+                            svgo: {
+                                plugins: [
+                                    {
+                                        removeViewBox: false
+                                    },
+                                    {
+                                        removeEmptyAttrs: false
+                                    }
+                                ]
+                            }
+                            // the webp option will enable WEBP
+                            // webp: {
+                            //   quality: 75
+                            // }
                         }
                     }
                 ]
@@ -63,14 +97,6 @@ module.exports = {
         ]
     },
     resolve: { extensions: ["*", ".js", ".jsx"] },
-    devServer: {
-        // stats: "minimal",
-        // contentBase: ".",
-        historyApiFallback: true
-        // historyApiFallback: {
-        //     rewrites: [{ from: /^\/posts\/.*/, to: "/" }]
-        // }
-    },
     plugins: [
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
