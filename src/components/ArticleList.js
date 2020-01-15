@@ -1,4 +1,6 @@
 import React from "react";
+import PropTypes from "prop-types";
+
 import {
     Switch,
     Route,
@@ -6,6 +8,10 @@ import {
     useRouteMatch,
     useParams
 } from "react-router-dom";
+
+// syntax highlighting
+// import 'prismjs';
+import "prismjs/themes/prism-tomorrow.css";
 
 // dynamically import markdown docs from content/blog/*/
 import articleMetadata from "../../makePostList.val.js";
@@ -41,10 +47,42 @@ const List = () => {
     );
 };
 
+const Toc = ({ items }) => {
+    console.log(items);
+    return (
+        <ul>
+            {items.map(item => (
+                <li key={item.id}>
+                    {
+                        <a href={`#${item.id}`} key={item.id}>
+                            {item.title}
+                        </a>
+                    }
+                    {item.children && item.children.length > 0 && (
+                        <Toc items={item.children} />
+                    )}
+                </li>
+            ))}
+        </ul>
+    );
+};
+
+Toc.propTypes = {
+    items: PropTypes.PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.string.isRequired,
+            level: PropTypes.number.isRequired,
+            title: PropTypes.string.isRequired,
+            children: PropTypes.array.isRequired
+        })
+    )
+};
+
 const Article = () => {
     let { articleId } = useParams();
     return (
         <article>
+            <Toc items={articleCache[articleId].tableOfContents()} />
             {React.createElement(articleCache[articleId].default)}
         </article>
     );
