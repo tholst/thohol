@@ -8,7 +8,7 @@ published: true
 
 # Markdown-based slides in the browser with reveal.js
 
-It's hard to imagine today's _white collar_ workspaces without slide-deck presentations somewhere in the background. Whether it's marketing slides presented to some customer, or structured arguments to facilitate an internal discussion with colleagues; slides are hard to avoid. But sometimes MS Powerpoint can really feel like overkill, especially if it's on the lower, more internal end of the spectrum. In addition, it can get quite annoying if you want to show some properly formatted source code. You may typically end up spending more time on the styling and layout than on the the content itself. What if we could create slides as easily as we write articles (like the one you are reading right now) and documentation? In markdown!
+It's hard to imagine today's office workspaces without slide-deck presentations somewhere in the background. Whether it's marketing slides presented to some customer, or structured arguments to facilitate an internal discussion with colleagues; slides are hard to avoid. But sometimes MS Powerpoint can really feel like overkill, especially if it's on the lower, more internal end of the spectrum. In addition, it can get quite annoying if you want to show some properly formatted source code. You may typically end up spending more time on the styling and layout than on the the content itself. What if we could create slides as easily as we write articles (like the one you are reading right now) and documentation? In markdown!
 
 **Enter:** [reveal-md](https://github.com/webpro/reveal-md)
 
@@ -45,7 +45,7 @@ It's hard to imagine today's _white collar_ workspaces without slide-deck presen
 
             This will serve the slideshow presentation at `localhost:7742` and should automatically open your browser. You should see an empty presentation screen.
 
-3) Now go **back to your editor** and **add some simple slides** to your presentation.
+3. Now go **back to your editor** and **add some simple slides** to your presentation.
 
     1. Start with a **title slide**, just as you would in a regular markdown document:
 
@@ -90,9 +90,7 @@ It's hard to imagine today's _white collar_ workspaces without slide-deck presen
         ```
 
 4. **Complete example**. All three slides together in 25 lines of markdown.
-
-    ![exampleGif](19a1_Example_Slideshow.gif)
-
+   
     ````markdown
     # My Example Presentation's Title
 
@@ -121,6 +119,9 @@ It's hard to imagine today's _white collar_ workspaces without slide-deck presen
     </div>
     ````
 
+    ![exampleGif](19a1_Example_Slideshow.gif)
+
+
 ## Additional options and features
 
 A comprehensive list of features can be found on reveal-md's GitHub page.
@@ -135,7 +136,7 @@ My preferred way, however, is to configure the options through some lines of YAM
 
 **EXAMPLE**
 
-```YAML
+```yaml
 ---
 title: Yet Another Presentation I Have To Give
 separator: ---
@@ -149,34 +150,91 @@ revealOptions:
 
 Reveal.js comes with multiple themes. The following themes may be specified with the `theme` property.
 
--   `black` ![black](19a2_Theme_Black.png)
--   `white` ![white](19a3_Theme_White.png)
--   `moon` ![moon](19a4_Theme_Moon.png)
--   `league` ![league](19a5_Theme_League.png)
--   `beige` ![beige](19a6_Theme_Beige.png)
--   `sky` ![sky](19a7_Theme_Sky.png)
--   `night` ![night](19a8_Theme_Night.png)
--   `serif` ![serif](19a9_Theme_Serif.png)
--   `simple` ![simple](19a10_Theme_Simple.png)
--   `solarize` ![solarize](19a11_Theme_Solarize.png)
--   `blood` ![blood](19a12_Theme_Blood.png)
+-   ```yaml
+    theme: black
+    ``` 
+    ![black](19a2_Theme_Black.png)
+-   ```yaml
+    theme: white
+    ```
+    ![white](19a3_Theme_White.png)
+-   ```yaml
+    theme: moon
+    ```
+    ![moon](19a4_Theme_Moon.png)
+-   ```yaml
+    theme: league
+    ```
+    ![league](19a5_Theme_League.png)
+-   ```yaml
+    theme: beige
+    ```
+    ![beige](19a6_Theme_Beige.png)
+-   ```yaml
+    theme: sky
+    ```
+    ![sky](19a7_Theme_Sky.png)
+-   ```yaml
+    theme: night
+    ```
+    ![night](19a8_Theme_Night.png)
+-   ```yaml
+    theme: serif
+    ```
+    ![serif](19a9_Theme_Serif.png)
+-   ```yaml
+    theme: simple
+    ```
+    ![simple](19a10_Theme_Simple.png)
+-   ```yaml
+    theme: solarize
+    ```
+    ![solarize](19a11_Theme_Solarize.png)
+-   ```yaml
+    theme: blood
+    ```
+    ![blood](19a12_Theme_Blood.png)
 
 ### Transition Style
 
 Reveal.js comes with multiple transition styles. The following themes may be specified with the `transition` sub-property of the `revealOptions` property.
 
--   `none` ![none](19a13_Transition_None.gif)
--   `fade` ![fade](19a14_Transition_Fade.gif)
--   `slide` ![slide](19a15_Transition_Slide.gif)
--   `convex` ![convex](19a16_Transition_Convex.gif)
--   `concave` ![concave](19a17_Transition_Concave.gif)
--   `zoom` ![zoom](19a18_Transition_Zoom.gif)
+-   ```yaml
+    revealOptions:
+        transition: none
+    ``` 
+    ![none](19a13_Transition_None.gif)
+-   ```yaml
+    revealOptions:
+        transition: fade
+    ``` 
+    ![fade](19a14_Transition_Fade.gif)
+-   ```yaml
+    revealOptions:
+        transition: slide
+    ``` 
+    ![slide](19a15_Transition_Slide.gif)
+-   ```yaml
+    revealOptions:
+        transition: convex
+    ``` 
+    ![convex](19a16_Transition_Convex.gif)
+-   ```yaml
+    revealOptions:
+        transition: concave
+    ``` 
+    ![concave](19a17_Transition_Concave.gif)
+-   ```yaml
+    revealOptions:
+        transition: zoom
+    ``` 
+    ![zoom](19a18_Transition_Zoom.gif)
 
 ### Full Page Pictures/Background
 
 Add background images with `<!-- .slide: data-background="URL" -->`.
 
-```Markdown
+```md
 ---
 
 <!-- .slide: data-background="https://www.maxpixel.net/static/photo/1x/Water-Lake-Sky-Nature-Quiet-Scenery-Landscape-4620023.jpg" -->
@@ -194,7 +252,7 @@ Add background images with `<!-- .slide: data-background="URL" -->`.
 
 Add some speaker notes after `Note:`. The notes can be seen in speaker view. Open speaker view by pressing the `s` key on the keyboard.
 
-```Markdown
+```md
 ---
 
 # Thank You!

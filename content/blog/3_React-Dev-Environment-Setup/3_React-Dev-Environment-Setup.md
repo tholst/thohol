@@ -3,7 +3,7 @@ title: React Dev Environment
 subtitle: Setting up a development environment for react
 date: 2019-10-26
 updated:
-published: true
+published: false
 ---
 
 # Setting Up React Dev Environment

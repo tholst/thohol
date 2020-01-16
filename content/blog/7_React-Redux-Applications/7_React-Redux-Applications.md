@@ -3,7 +3,7 @@ title: Building Applications with React and Redux
 subtitle: my notes for the Pluralsight Course by Cory House
 date: 2019-11-04
 updated:
-published: true
+published: false
 ---
 
 # Building Applications with React and Redux
