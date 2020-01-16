@@ -32,15 +32,31 @@ require.context(
     /\/.*\/[^/]*\.(png|jpg|jpeg|gif)$/
 );
 
+// date formatter
+const dateFormatter = new Intl.DateTimeFormat('en-us', { month: 'long', year: "numeric", day: "2-digit" });
+
+const PostEntry = ({ article, linkTo }) => {
+    return (
+        <Link to={linkTo}>
+            <div className="postEntry vbox">
+                <div className="peDate">{dateFormatter.format(new Date(article.date))}</div>
+                <div className="peMainTitle">{article.title}</div>
+                <div className="peSubTitle">{article.subtitle}</div>
+            </div>
+        </Link>
+    );
+};
+
 const List = () => {
     let match = useRouteMatch();
     return (
         <ul>
             {articleMetadata.map((article, i) => (
                 <li key={i}>
-                    <Link to={`${match.url}/${article.id}`}>
-                        {article.title} ({article.date})
-                    </Link>
+                    <PostEntry
+                        article={article}
+                        linkTo={`${match.url}/${article.id}`}
+                    />
                 </li>
             ))}
         </ul>

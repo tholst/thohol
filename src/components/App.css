@@ -78,3 +78,36 @@ article img {
     /* padding: .5rem; */
     box-sizing: border-box;
 }
+
+.article-list {
+    margin: 3rem 0 0 0;
+}
+
+.article-list > ul {
+    list-style: none;
+}
+
+.article-list > ul > li > a {
+    text-decoration: none;
+    color:inherit;
+}
+
+.postEntry {
+    margin: 2.5rem 0rem;
+}
+
+.peDate {
+    color: #aaa
+}
+
+.peMainTitle {
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 0 0 0.375rem 0;
+}
+
+.peSubTitle {
+    font-size: 1.25rem;
+    font-style: italic;
+    font-weight: lighter;
+}
