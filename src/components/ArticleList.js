@@ -23,6 +23,7 @@ const articleRequireContext = require.context(
 const articleCache = {};
 articleMetadata.forEach(article => {
     articleCache[article.id] = articleRequireContext(article.filepath);
+    articleCache[article.id].meta = article;
 });
 
 // dynamically import images from content/blog/*/
@@ -33,13 +34,19 @@ require.context(
 );
 
 // date formatter
-const dateFormatter = new Intl.DateTimeFormat('en-us', { month: 'long', year: "numeric", day: "2-digit" });
+const dateFormatter = new Intl.DateTimeFormat("en-us", {
+    month: "long",
+    year: "numeric",
+    day: "2-digit"
+});
 
 const PostEntry = ({ article, linkTo }) => {
     return (
         <Link to={linkTo}>
             <div className="postEntry vbox">
-                <div className="peDate">{dateFormatter.format(new Date(article.date))}</div>
+                <div className="peDate">
+                    {dateFormatter.format(new Date(article.date))}
+                </div>
                 <div className="peMainTitle">{article.title}</div>
                 <div className="peSubTitle">{article.subtitle}</div>
             </div>
@@ -64,7 +71,7 @@ const List = () => {
 };
 
 const Toc = ({ items }) => {
-    console.log(items);
+    // console.log(items);
     return (
         <ul>
             {items.map(item => (
@@ -94,25 +101,39 @@ Toc.propTypes = {
     )
 };
 
-const Article = () => {
-    let { articleId } = useParams();
+const Article = ({ match }) => {
+    const id = match.params.articleId;
+    const articleData = articleCache[id];
+
     return (
-        <article>
-            <Toc items={articleCache[articleId].tableOfContents()} />
-            {React.createElement(articleCache[articleId].default)}
+        <article id={`article-${id}`}>
+            <div className="articleTocWrapper vbox">
+                <div className="articleTOC">
+                    <div className="articleTocHeading">On this page</div>
+                    <Toc items={articleData.tableOfContents()} />
+                </div>
+            </div>
+
+            <div className="articleHeader vbox">
+                <div className="ahDate">
+                    {dateFormatter.format(new Date(articleData.meta.date))}
+                </div>
+                <div className="ahMainTitle">{articleData.meta.title}</div>
+                <div className="ahSubTitle">{articleData.meta.subtitle}</div>
+            </div>
+
+            {React.createElement(articleData.default)}
         </article>
     );
 };
 
 const ArticlesList = () => {
     let match = useRouteMatch();
-    console.log(match);
+    // console.log(match);
     return (
         <div className="article-list">
             <Switch>
-                <Route path={`${match.path}/:articleId`}>
-                    <Article />
-                </Route>
+                <Route path={`${match.path}/:articleId`} component={Article} />
                 <Route path={match.path}>
                     <List />
                 </Route>

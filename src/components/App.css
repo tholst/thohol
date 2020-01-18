@@ -40,6 +40,10 @@ ol ol ol {
     list-style-type: lower-roman;
 }
 
+article ul > li > img {
+    margin: 0 0 2rem 0;
+}
+
 .content {
     max-width: 40rem;
     margin: auto;

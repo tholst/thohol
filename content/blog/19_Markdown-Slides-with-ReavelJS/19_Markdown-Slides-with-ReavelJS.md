@@ -6,91 +6,93 @@ updated:
 published: true
 ---
 
-# Markdown-based slides in the browser with reveal.js
-
 It's hard to imagine today's office workspaces without slide-deck presentations somewhere in the background. Whether it's marketing slides presented to some customer, or structured arguments to facilitate an internal discussion with colleagues; slides are hard to avoid. But sometimes MS Powerpoint can really feel like overkill, especially if it's on the lower, more internal end of the spectrum. In addition, it can get quite annoying if you want to show some properly formatted source code. You may typically end up spending more time on the styling and layout than on the the content itself. What if we could create slides as easily as we write articles (like the one you are reading right now) and documentation? In markdown!
 
 **Enter:** [reveal-md](https://github.com/webpro/reveal-md)
 
 **Let's jump straight in**, and look at more details afterwards.
 
-## Create and run a markdown-based slideshow in 3 minutes
+## Get started in 3 minutes
 
-1. Prerequisites:
-    1. Install [Node.js](https://nodejs.org/) to get `npm` and `npx`
-    2. Install Editor like [Microsoft's Visual Studio Code](https://code.visualstudio.com/)
-2. Setup
+### 1. Prerequisites:
 
-    1. Create new `.md` file and open in editor.
+1. Install [Node.js](https://nodejs.org/) to get `npm` and `npx`
+2. Install Editor like [Microsoft's Visual Studio Code](https://code.visualstudio.com/)
+
+### 2. Setup
+
+1. Create new `.md` file and open in editor.
+
+    ```bash
+    $ code Example.md
+    ```
+
+2. Download and execute reveal-md, pointing it to your presentation file.
+
+    - a) **Without installation** using `npx`:
+        ```bash
+        $ npx reveal-md Example.md --port 7742 --watch
+        ```
+        **or**
+    - b) **With global installation** using `npm`:
 
         ```bash
-        $ code Example.md
+        # Install globally once
+        $ npm install -g reveal-md
+        # Afterwards simply run as follows
+        $ reveal-md Example.md --port 7742 --watch
         ```
 
-    2. Download and execute reveal-md, pointing it to your presentation file.
+        This will serve the slideshow presentation at `localhost:7742` and should automatically open your browser. You should see an empty presentation screen.
 
-        - a) Without installation using `npx`:
-            ```bash
-            $ npx reveal-md Example.md --port 7742 --watch
-            ```
-            **or**
-        - b) With global installation using `npm`:
+### 3. Add some slides
 
-            ```bash
-            # Install globally once
-            $ npm install -g reveal-md
-            # Afterwards simply run as follows
-            $ reveal-md Example.md --port 7742 --watch
-            ```
+Now go **back to your editor** and **add some simple slides** to your presentation.
 
-            This will serve the slideshow presentation at `localhost:7742` and should automatically open your browser. You should see an empty presentation screen.
+1. Start with a **title slide**, just as you would in a regular markdown document:
 
-3. Now go **back to your editor** and **add some simple slides** to your presentation.
+    ```markdown
+    # My Example Presentation's Title
 
-    1. Start with a **title slide**, just as you would in a regular markdown document:
+    A nice presentation by _Author_.
+    ```
 
-        ```markdown
-        # My Example Presentation's Title
+2. Add a **slide separator**:
+    ```markdown
+    ---
+    ```
+3. Create a **content slide**:
 
-        A nice presentation by _Author_.
-        ```
+    ````markdown
+    ## Some things to show
 
-    2. Add a **slide separator**:
-        ```markdown
-        ---
-        ```
-    3. Create a **content slide**:
+    -   Bullet
+    -   Point
+    -   List
 
-        ````markdown
-        ## Some things to show
+    ```js
+    var some = () => "code";
+    ```
 
-        -   Bullet
-        -   Point
-        -   List
+    ![A nice Image](https://via.placeholder.com/300x50/0000FF/FF0080?text=Image!!)
+    ````
 
-        ```js
-        var some = () => "code";
-        ```
+4. Add another **slide separator**:
+    ```markdown
+    ---
+    ```
+5. Add a **Thank You slide**.
 
-        ![A nice Image](https://via.placeholder.com/300x50/0000FF/FF0080?text=Image!!)
-        ````
+    ```markdown
+    # Thank You!
 
-    4. Add another **slide separator**:
-        ```markdown
-        ---
-        ```
-    5. Add a **Thank You slide**.
+    <div style="font-size: 18px; text-align: right;">
+        Your Author
+    </div>
+    ```
 
-        ```markdown
-        # Thank You!
+6. **Complete example**. All three slides together in 25 lines of markdown.
 
-        <div style="font-size: 18px; text-align: right;">
-            Your Author
-        </div>
-        ```
-
-4. **Complete example**. All three slides together in 25 lines of markdown.
-   
     ````markdown
     # My Example Presentation's Title
 
@@ -121,11 +123,9 @@ It's hard to imagine today's office workspaces without slide-deck presentations 
 
     ![exampleGif](19a1_Example_Slideshow.gif)
 
+## Additional Options
 
-## Additional options and features
-
-A comprehensive list of features can be found on reveal-md's GitHub page.
-
+A comprehensive list of features can be found on [reveal-md's GitHub page](https://github.com/webpro/reveal-md).
 I will describe a selected few below.
 
 ### Configuration in YAML front matter
@@ -134,7 +134,7 @@ There are multiple ways to configure reveal-md (or the underlying reveal.js) and
 
 My preferred way, however, is to configure the options through some lines of YAML at the beginning of the Markdown document.
 
-**EXAMPLE**
+**Example**
 
 ```yaml
 ---
@@ -142,8 +142,9 @@ title: Yet Another Presentation I Have To Give
 separator: ---
 theme: black
 revealOptions:
-    transition: 'slide'
+    transition: "slide"
 ---
+
 ```
 
 ### Themes
@@ -152,7 +153,7 @@ Reveal.js comes with multiple themes. The following themes may be specified with
 
 -   ```yaml
     theme: black
-    ``` 
+    ```
     ![black](19a2_Theme_Black.png)
 -   ```yaml
     theme: white
@@ -202,42 +203,42 @@ Reveal.js comes with multiple transition styles. The following themes may be spe
 -   ```yaml
     revealOptions:
         transition: none
-    ``` 
+    ```
     ![none](19a13_Transition_None.gif)
 -   ```yaml
     revealOptions:
         transition: fade
-    ``` 
+    ```
     ![fade](19a14_Transition_Fade.gif)
 -   ```yaml
     revealOptions:
         transition: slide
-    ``` 
+    ```
     ![slide](19a15_Transition_Slide.gif)
 -   ```yaml
     revealOptions:
         transition: convex
-    ``` 
+    ```
     ![convex](19a16_Transition_Convex.gif)
 -   ```yaml
     revealOptions:
         transition: concave
-    ``` 
+    ```
     ![concave](19a17_Transition_Concave.gif)
 -   ```yaml
     revealOptions:
         transition: zoom
-    ``` 
+    ```
     ![zoom](19a18_Transition_Zoom.gif)
 
-### Full Page Pictures/Background
+### Full Page Pictures / Background
 
 Add background images with `<!-- .slide: data-background="URL" -->`.
 
 ```md
 ---
 
-<!-- .slide: data-background="https://www.maxpixel.net/static/photo/1x/Water-Lake-Sky-Nature-Quiet-Scenery-Landscape-4620023.jpg" -->
+<!-- .slide: data-background="https://example.com/image.jpg" -->
 
 # Thank You!
 
@@ -247,6 +248,7 @@ Add background images with `<!-- .slide: data-background="URL" -->`.
 ```
 
 ![](19a21_Background-Image.png)
+Image Credits: [maxpixel.net](https://www.maxpixel.net/static/photo/1x/Water-Lake-Sky-Nature-Quiet-Scenery-Landscape-4620023.jpg)
 
 ### Speaker Notes
 
