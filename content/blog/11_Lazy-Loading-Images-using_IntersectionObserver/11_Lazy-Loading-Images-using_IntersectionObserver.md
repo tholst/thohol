@@ -6,9 +6,9 @@ updated:
 published: true
 ---
 
-# Lazy Loading of DOM elements like images, videos etc. using IntersectionObserver
+<!-- # Lazy Loading of DOM elements like images, videos etc. using IntersectionObserver -->
 
-## Note: Support and Alternatives
+## Support and Alternatives
 
 -   The use of IntersectionObserver is [not supported on IE](https://caniuse.com/#feat=intersectionobserver).
 -   Alternative approaches include
@@ -57,8 +57,10 @@ let observer = new IntersectionObserver(callback, options);
 
 #### 2. Observe a target element
 
+The target must be a descendant of the root element.
+
 ```js
-let target = document.querySelector("#listItem"); // the target must be a descendant of the root element
+let target = document.querySelector("#listItem"); 
 observer.observe(target);
 ```
 
