@@ -46,7 +46,7 @@ footer {
 footer.footer {
     margin-top: 2rem;
     margin-bottom: 3rem;
-    border-top: 1px solid black;
+    border-top: 1px solid #ccc;
     height: 3rem;
     align-items: center;
     justify-content: end;
@@ -122,8 +122,6 @@ article img {
     list-style: none;
     padding: 0;
 }
-
-
 
 .article-list > ul > li > a,
 .noLinkStyling {
