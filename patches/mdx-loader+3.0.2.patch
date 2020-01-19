@@ -1,0 +1,13 @@
+diff --git a/node_modules/mdx-loader/prism/index.js b/node_modules/mdx-loader/prism/index.js
+index bb7540e..e38b5a8 100644
+--- a/node_modules/mdx-loader/prism/index.js
++++ b/node_modules/mdx-loader/prism/index.js
+@@ -46,7 +46,7 @@ module.exports = options => {
+ 
+     let code = nodeToString(node);
+     try {
+-      node.properties.className = (parent.properties.className || [])
++      parent.properties.className = (parent.properties.className || [])
+         .concat('language-' + normalizedLanguage);
+ 
+       node.properties['data-language'] = normalizedLanguage
