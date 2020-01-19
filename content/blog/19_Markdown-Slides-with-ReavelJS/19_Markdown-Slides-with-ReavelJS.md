@@ -1,6 +1,6 @@
 ---
 title: Slides with Markdown
-subtitle: Markdown-based slides in the browser with reveal.js
+subtitle: Markdown-based slides in the browser with reveal.js / reveal-md
 date: 2019-11-17
 updated:
 published: true
@@ -286,20 +286,20 @@ Text after a `>` will be shown as a quote.
 
 Please go on, there is nothing to see here!
 
-Still here? Ok, so: `Reveal.js` offers two dimensions of navigation: _vertical_ and _horizontal_. The idea is that this navigation reflects the hierarchy of the presented content.
+Still here? Ok, so: `Reveal.js` offers two dimensions of navigation between slides: _vertical_ and _horizontal_. The idea is that this navigation reflects the hierarchy of the presented content.
 
 Take this content structure as an example:
 
--   Topic 1
-    -   Sub-topic 1.1
-    -   Sub-topic 1.2
-    -   Sub-topic 1.3
--   Topic 2
-    -   Sub-topic 2.1
-    -   Sub-topic 2.2
--   Topic 3
+-   Topic 1 Slide
+    -   Sub-topic 1.1 Slide
+    -   Sub-topic 1.2 Slide
+    -   Sub-topic 1.3 Slide
+-   Topic 2 Slide
+    -   Sub-topic 2.1 Slide
+    -   Sub-topic 2.2 Slide
+-   Topic 3 Slide
 
-A horizontal navigation would switch between topics 1 to 3, whereas a vertical navigation would move from a slide for Topic 1 to slides for sub-topics 1.1 to 1.3.
+A *horizontal navigation* would switch between topics 1 to 3, whereas a *vertical navigation* would move from a slide for Topic 1 to slides for sub-topics 1.1 to 1.3.
 
 Well... I think, this may sound very nice in theory. In practice, I have never seen it working well. It's just too hard for the audience to follow a two-dimensional structure.
 

@@ -1,19 +1,21 @@
 ---
-title: Lazy Loading with IntersectionObserver
-subtitle: Lazy Loading of DOM elements like images, videos etc. using IntersectionObserver
+title: Hey DOM, where are you (currently visible)?
+subtitle: Get notified when DOM elements are scrolling in/out of viewport; Lazy Loading of Images; IntersectionObserver
 date: 2019-11-10
 updated:
 published: true
 ---
 
-<!-- # Lazy Loading of DOM elements like images, videos etc. using IntersectionObserver -->
+Is some DOM element currently visible? Is it fully visible, or only partially? Is it currently moving into view or is it leaving the screen? [IntersectionObserver](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) can answer these questions (and some more generic ones)!
+
+Below is a short intro to the basic usage of IntersectionObserver. A common use case is the lazy/delayed-loading of images (see [delayed loading example below](#delay-loading-example)).
 
 ## Support and Alternatives
 
 -   The use of IntersectionObserver is [not supported on IE](https://caniuse.com/#feat=intersectionobserver).
 -   Alternative approaches include
     -   connect to scroll event
-    -   using periodic timer and calling `getBoundingClientRect()` on target (observed) element --> NOT a good option because it is painfully slow as each call to getBoundingClientRect() forces the browser to re-layout the entire page and will introduce considerable jank to your website.
+    -   using periodic timer and calling `getBoundingClientRect()` on target (observed) element --> NOT a good option because it is "painfully slow as each call to getBoundingClientRect() forces the browser to re-layout the entire page and will introduce considerable jank to your website".
 
 ## Links
 
