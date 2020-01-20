@@ -114,8 +114,9 @@ module.exports = {
             local: true,
             path: "fonts",
 			fonts: [
-				{ family: "Montserrat", variants: [ "400", "400italic", "700italic" ] },
-				{ family: "Roboto", variants: [ "400", "400italic", "700italic" ] }
+				{ family: "Montserrat", variants: [ "400", "400italic", "700", "700italic" ] },
+                {
+                    family: "Roboto", variants: ["400", "400italic", "700italic", "900" ] }
 			]
 		})
     ]

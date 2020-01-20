@@ -115,11 +115,11 @@ const Article = ({ match }) => {
             </div>
 
             <div className="articleHeader vbox">
+                <div className="ahMainTitle">{articleData.meta.title}</div>
+                <div className="ahSubTitle">{articleData.meta.subtitle}</div>
                 <div className="ahDate">
                     {dateFormatter.format(new Date(articleData.meta.date))}
                 </div>
-                <div className="ahMainTitle">{articleData.meta.title}</div>
-                <div className="ahSubTitle">{articleData.meta.subtitle}</div>
             </div>
 
             {React.createElement(articleData.default)}
