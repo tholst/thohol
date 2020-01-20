@@ -44,11 +44,11 @@ const PostEntry = ({ article, linkTo }) => {
     return (
         <Link to={linkTo}>
             <div className="postEntry vbox">
+                <div className="peMainTitle">{article.title}</div>
+                <div className="peSubTitle">{article.subtitle}</div>
                 <div className="peDate">
                     {dateFormatter.format(new Date(article.date))}
                 </div>
-                <div className="peMainTitle">{article.title}</div>
-                <div className="peSubTitle">{article.subtitle}</div>
             </div>
         </Link>
     );
