@@ -29,6 +29,7 @@ Dependencies explained:
     -   `style-loader`: Add exports of a module as style to DOM
     -   `@mdx-js/loader`: loader for markdown and markdown-with-jsx documents
     -   `val-loader`: executes imported script and replaces it with script output
+    -   `GoogleFontsPlugin`: webpack plugin that downloads google fonts via [google-webfonts-helper](https://google-webfonts-helper.herokuapp.com/)
 -   babel: transpiler
     -   `@babel/core`: core transpiler library
     -   `@babel/cli`: command-line interface for babel

@@ -1,5 +1,14 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const GoogleFontsPlugin = require("@beyonk/google-fonts-webpack-plugin")
+
+module.exports = {
+	"entry": "index.js",
+	/* ... */
+	plugins: [
+		
+	]
+}
 
 process.env.NODE_ENV = "development";
 
@@ -100,6 +109,14 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: "./src/index.html"
             // favicon: "src/favicon.ico"
-        })
+        }),
+        new GoogleFontsPlugin({
+            local: true,
+            path: "fonts",
+			fonts: [
+				{ family: "Montserrat", variants: [ "400", "400italic", "700italic" ] },
+				{ family: "Roboto", variants: [ "400", "400italic", "700italic" ] }
+			]
+		})
     ]
 };
