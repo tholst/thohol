@@ -6,6 +6,32 @@ body,
 #root,
 .app {
     height: 100vh;
+    font-family: "Roboto", Verdana, sans-serif;
+}
+
+strong {
+    font-weight: 900;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+.ahMainTitle,
+.ahSubTitle,
+.peMainTitle,
+.peSubTitle,
+.peDate {
+    font-family: "Montserrat", Verdana, sans-serif;
+}
+
+h2 {
+    margin: 3rem 0 1.25rem 0;
+}
+
+h3 {
+    margin: 2rem 0 1rem 0;
 }
 
 header,
@@ -134,19 +160,24 @@ article img {
 }
 
 .peDate {
-    color: #aaa;
+    color: #999;
+    font-size: 0.875rem;
 }
 
 .peMainTitle {
     font-size: 2rem;
-    font-weight: bold;
-    padding: 0 0 0.375rem 0;
+    font-weight: 700;
+    /* margin: 0.5rem 0; */
+    /* font-style: italic; */
+    color: #111;
 }
 
 .peSubTitle {
     font-size: 1.25rem;
-    font-style: italic;
-    font-weight: lighter;
+    font-weight: 300;
+    width: 90%;
+    color: #555;
+    margin: 0.5rem 0;
 }
 
 .articleTocWrapper.vbox {
@@ -194,17 +225,30 @@ article img {
 }
 
 .ahDate {
-    color: #aaa;
+    color: #999;
+}
+
+.articleHeader::after {
+    content: "";
+    width: 13.33rem;
+    height: 1px;
+    position: relative;
+    top: 0.5rem;
+    border-bottom: 1px solid #ddd;
 }
 
 .ahMainTitle {
     font-size: 2rem;
-    font-weight: bold;
-    padding: 0 0 0.375rem 0;
+    font-weight: 700;
+    font-style: italic;
+    margin: 0 0 1rem 0;
+    color: #111;
 }
 
 .ahSubTitle {
     font-size: 1.25rem;
-    font-style: italic;
-    font-weight: lighter;
+    font-weight: 300;
+    margin: 0 0 1.5rem 0;
+    width: 90%;
+    color: #333;
 }

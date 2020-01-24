@@ -44,11 +44,11 @@ const PostEntry = ({ article, linkTo }) => {
     return (
         <Link to={linkTo}>
             <div className="postEntry vbox">
+                <div className="peMainTitle">{article.title}</div>
+                <div className="peSubTitle">{article.subtitle}</div>
                 <div className="peDate">
                     {dateFormatter.format(new Date(article.date))}
                 </div>
-                <div className="peMainTitle">{article.title}</div>
-                <div className="peSubTitle">{article.subtitle}</div>
             </div>
         </Link>
     );
@@ -115,11 +115,11 @@ const Article = ({ match }) => {
             </div>
 
             <div className="articleHeader vbox">
+                <div className="ahMainTitle">{articleData.meta.title}</div>
+                <div className="ahSubTitle">{articleData.meta.subtitle}</div>
                 <div className="ahDate">
                     {dateFormatter.format(new Date(articleData.meta.date))}
                 </div>
-                <div className="ahMainTitle">{articleData.meta.title}</div>
-                <div className="ahSubTitle">{articleData.meta.subtitle}</div>
             </div>
 
             {React.createElement(articleData.default)}
