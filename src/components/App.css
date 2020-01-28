@@ -104,24 +104,66 @@ h3 {
     margin: 5px;
 } */
 
-.header-nav {
-    height: 3rem;
+.header-nav.hbox {
+    /* height: 3rem; */
     /* border: 1px solid blue; */
+    justify-content: flex-end;
+    height: 100%;
 }
 
-.header-nav ul {
+/* .header-nav { */
     /* height: 3rem; */
-    text-align: right;
+    /* text-align: right;
 }
 
-.header-nav li {
+/* .header-nav {
     /* height: 3rem; */
-    display: inline-block;
-    margin: 1rem 0rem 1rem 1rem;
+    /* display: inline-block; */
+    /* height: 100%; */
+/* } */
+
+.header-nav a {
+    /* height: 100%; */
+    /* line-height: 1rem; */
+    margin: 0 1rem;
+    padding: 1rem 0;
+    /* box-sizing: border-box; */
+    position: relative;
+    color: #11f;
+}
+
+.header-nav a.active {
+    /* content: ""; */
+    /* width: 5rem; */
+    /* height: 1px; */
+    /* border-bottom: 3px solid lightcoral; */
+    color: #000;
+}
+
+.header-nav a.active::after {
+    /* transition: all 0.5s ease; */
+    position: absolute;
+    content: "";
+    width: calc(100% + 2rem);
+    left: -1rem;
+    top: 3rem;
+    /* width: 5rem; */
+    height: 3px;
+    background-color: #000;
+    /* border-bottom: 3px solid lightcoral; */
+}
+
+.header-nav a:not(.active) {
+}
+
+.header-title {
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: #555;
 }
 
 footer.footer {
-    margin-top: 2rem;
+    /* margin-top: 2rem; */
     margin-bottom: 3rem;
     border-top: 1px solid #ccc;
     height: 3rem;
@@ -136,6 +178,7 @@ footer.footer {
     text-align: right;
     /* padding: 1rem 0; */
     /* box-sizing: border-box; */
+    color: #555;
 }
 
 ol ol {
@@ -153,9 +196,14 @@ article ul > li > img {
 .content {
     max-width: 42rem;
     width: 100%;
-    margin: auto;
-    padding: 0 1rem;
+    margin: 0 auto auto auto;
+    padding: 3rem 1rem;
     box-sizing: border-box;
+}
+
+.content :first-child {
+    padding-top: 0;
+    margin-top: 0;
 }
 
 .hbox {
@@ -174,6 +222,14 @@ article ul > li > img {
     /* border: 3px solid blue; */
 }
 
+.vbox-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+    /* border: 3px solid blue; */
+}
+
 .nolist {
     list-style-type: none;
     margin: 0;
@@ -186,7 +242,7 @@ article ul > li > img {
 }
 
 .flexitem-fix {
-    flex: 1 0 auto;
+    flex: 0 0 auto;
     /* border: 2px dotted orange; */
 }
 
@@ -198,12 +254,13 @@ article img {
 }
 
 .article-list {
-    margin: 3rem 0 0 0;
+    margin: 0 0 0 0;
 }
 
 .article-list > ul {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 .article-list > ul > li > a,
@@ -213,7 +270,7 @@ article img {
 }
 
 .postEntry {
-    margin: 2.5rem 0rem;
+    margin: 0rem 0rem 2.5rem 0rem;
 }
 
 .peDate {
@@ -278,7 +335,7 @@ article img {
 }
 
 .articleHeader {
-    margin: 2.5rem 0rem;
+    margin: 0rem 0rem 6rem 0rem;
 }
 
 .ahDate {
@@ -295,9 +352,9 @@ article img {
 }
 
 .ahMainTitle {
-    font-size: 2rem;
+    font-size: 3rem;
     font-weight: 700;
-    font-style: italic;
+    /* font-style: italic; */
     margin: 0 0 1rem 0;
     color: #111;
 }
@@ -309,3 +366,4 @@ article img {
     width: 90%;
     color: #333;
 }
+
