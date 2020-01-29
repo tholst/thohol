@@ -32,7 +32,7 @@ After some research I found this neat tool called [**patch-package**](https://gi
     }
     ```
 
-### 1. Implement the fix
+### Step 1: Implement the fix
 
 So, I found this small bug in the `mdx-loader` package. This fix is very simple. In the file `node_modules/mdx-loader/prism/index.js`, I needed to change the following line
 
@@ -46,7 +46,7 @@ to this:
 parent.properties.className = parent.properties.className || [];
 ```
 
-### 2. Extracting the patch
+### Step 2: Extracting the patch
 
 Run `npx patch-package` on the fixed package.
 
@@ -81,7 +81,7 @@ index bb7540e..e38b5a8 100644
 
 ```
 
-### 3. Commit patch file
+### Step 3: Commit patch file
 
 ```bash
 $ git add patches/mdx-loader+3.0.2.patch
@@ -95,14 +95,41 @@ $ git commit -m "fix prismjs-support in mdx-loader"
 ## Why I needed the monkey patch
 
 Normally, if you found a bug in one of your NPM dependencies, you would:
+
 1. Fork the package's repository on Github.
 2. Fix the bug in your fork.
-3. Create a pull-request (with your fix) from your fork to the original repo.
-4. While the PR from step 3 has not been merged yet: Replace the NPM dependency (pointing to the original repo) with your fork (pointing to your repo)
-5. Change back to original (reverse of step 4) when/if PR from step 3 gets merged.
+3. Create a pull-request (with your fix) from your fork to the original repo ("*upstream*").
+4. As long as the PR (from step 3) has not been merged yet: Replace the NPM dependency (pointing to the original repo) with your fork (pointing to your repo)
+5. Change back to original (reverse of step 4) when/if PR (from step 3) gets merged.
 
 I actually did step 1, step 2 and step 3 ([pull request](https://github.com/frontarm/mdx-util/pull/58)). But then I got to step 4 and the pull request had not yet been merged after a couple of days. 
 
-So I tried changing the dependency from the original package to my fork of that package. And then I got to some specifics of the interplay between NPM and GitHub. See, the package `mdx-loader` where I fixed the bug is actually maintained in this repo: https://github.com/frontarm/mdx-util. And that repository actually contains 4 separately registered NPM packages, each in their own folder under `packages/`. So, to change my dependency to my forked and fixed version of the package, I would have to be able to say: NPM, please install the package `mdx-loader` which can be found in the subdirectory `packages/mdx-loader` of my fork repository `https://github.com/tholst/mdx-util`. Turns out, that is not possible with NPM, as can been seen in this [NPM issue on GitHub](https://github.com/npm/npm/issues/2974) that was closed (and locked) without solution.
+### The problem
+So I tried changing the dependency from the original package to my fork of that package. But NPM wouldn't install it. And here is why: 
+
+It's due some specifics of the interplay between NPM and GitHub. See, the package `mdx-loader` (where I fixed the bug) is actually maintained in this repo: [github.com/frontarm/mdx-util](https://github.com/frontarm/mdx-util). And that repository actually contains 4 separately registered NPM packages, each in their own folder under `packages/`. 
+
+
+```bash
+$ tree mdx-util
+mdx-util
+├── ...
+├── package.json
+├── packages
+│   ├── mdx-constant
+│   │   ├── package.json
+│   │   └── ...
+│   ├── mdx-loader
+│   │   ├── package.json
+│   │   └── ...
+│   ├── mdx-table-of-contents
+│   │   ├── package.json
+│   │   └── ...
+│   └── mdx.macro
+│   │   ├── package.json
+│   │   └── ...
+```
+
+So, to change my dependency to my forked and fixed version of the package, I would have to be able to say: NPM, please install the package `mdx-loader` which can be found in the subdirectory `packages/mdx-loader` of my fork repository [github.com/tholst/mdx-util](https://github.com/tholst/mdx-util). Turns out, that is not possible with NPM, as can been seen in this [NPM issue on GitHub](https://github.com/npm/npm/issues/2974) that was closed (and locked) without solution.
 
 Hence, I ended up with the `patch-package` approach described above.
