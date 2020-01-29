@@ -3,21 +3,29 @@ import { Link, NavLink } from "react-router-dom";
 
 const Header = () => (
     <header className="header hbox">
-        <Link to="/posts" className="noLinkStyling">
-            <div className="vbox flexitem">
-                <div className="header-title flexitem">{"Thomas'"}</div>
-                <div className="header-subtitle flexitem">{"Notes"}</div>
+        <div className="vbox flexitem">
+            <Link to="/posts" className="noLinkStyling">
+                <div className="header-title flexitem">{"Thomas Holst"}</div>
+            </Link>
+            <div className="header-subtitle flexitem">
+                <Link to="/posts" className="noLinkStyling">
+                    {"Software Development "}
+                </Link>
+                <a
+                    className="noLinkStyling"
+                    href="https://www.urbandictionary.com/define.php?term=and%20stuff"
+                >
+                    & stuff
+                </a>
             </div>
-        </Link>
-        <nav className="header-nav flexitem">
-            <ul className="nolist">
-                <li className="">
-                    <NavLink to="/posts">Posts</NavLink>
-                </li>
-                <li className="">
-                    <NavLink to="/about">About</NavLink>
-                </li>
-            </ul>
+        </div>
+        <nav className="header-nav flexitem hbox">
+            <NavLink exact className="noLinkStyling" to="/posts">
+                Posts
+            </NavLink>
+            <NavLink className="noLinkStyling" to="/about">
+                About
+            </NavLink>
         </nav>
     </header>
 );

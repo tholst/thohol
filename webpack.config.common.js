@@ -1,14 +1,12 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const GoogleFontsPlugin = require("@beyonk/google-fonts-webpack-plugin")
+const GoogleFontsPlugin = require("@beyonk/google-fonts-webpack-plugin");
 
 module.exports = {
-	"entry": "index.js",
-	/* ... */
-	plugins: [
-		
-	]
-}
+    entry: "index.js",
+    /* ... */
+    plugins: []
+};
 
 process.env.NODE_ENV = "development";
 
@@ -113,11 +111,16 @@ module.exports = {
         new GoogleFontsPlugin({
             local: true,
             path: "fonts",
-			fonts: [
-				{ family: "Montserrat", variants: [ "400", "400italic", "700", "700italic" ] },
+            fonts: [
                 {
-                    family: "Roboto", variants: ["400", "400italic", "700italic", "900" ] }
-			]
-		})
+                    family: "Montserrat",
+                    variants: ["400", "400italic", "700", "700italic"]
+                },
+                {
+                    family: "Roboto",
+                    variants: ["400", "400italic", "700italic", "900"]
+                }
+            ]
+        })
     ]
 };
