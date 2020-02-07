@@ -27,7 +27,8 @@ Dependencies explained:
     -   `eslint-loader`: PreLoader for linting code using ESLint
     -   `html-webpack-plugin`: Creates HTML file from template and injects bundles
     -   `style-loader`: Add exports of a module as style to DOM
-    -   `@mdx-js/loader`: loader for markdown and markdown-with-jsx documents
+    <!-- -   `@mdx-js/loader`: loader for markdown and markdown-with-jsx documents -->
+    -   `mdx-loader`: loader for markdown and markdown-with-jsx documents
     -   `val-loader`: executes imported script and replaces it with script output
     -   `GoogleFontsPlugin`: webpack plugin that downloads google fonts via [google-webfonts-helper](https://google-webfonts-helper.herokuapp.com/)
 -   babel: transpiler
