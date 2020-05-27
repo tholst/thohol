@@ -6,7 +6,7 @@ import {
     Route,
     Link,
     useRouteMatch,
-    useParams
+    useParams,
 } from "react-router-dom";
 
 // syntax highlighting
@@ -21,7 +21,7 @@ const articleRequireContext = require.context(
     /\/.*\/[0-9]+_[^/]*\.md(x)?$/
 );
 const articleCache = {};
-articleMetadata.forEach(article => {
+articleMetadata.forEach((article) => {
     articleCache[article.id] = articleRequireContext(article.filepath);
     articleCache[article.id].meta = article;
 });
@@ -37,18 +37,28 @@ require.context(
 const dateFormatter = new Intl.DateTimeFormat("en-us", {
     month: "long",
     year: "numeric",
-    day: "2-digit"
+    day: "2-digit",
 });
 
 const PostEntry = ({ article, linkTo }) => {
+    console.log(article);
     return (
         <Link to={linkTo}>
             <div className="postEntry vbox">
                 <div className="peMainTitle">{article.title}</div>
                 <div className="peSubTitle">{article.subtitle}</div>
-                <div className="peDate">
-                    {dateFormatter.format(new Date(article.date))}
-                </div>
+                {!article.updated && (
+                    <div className="peDate">
+                        {dateFormatter.format(new Date(article.date))}
+                    </div>
+                )}
+                {article.updated && (
+                    <div className="peDate">
+                        {/* <span className="peUpdateLabel">Updated:</span>{" "} */}
+                        {dateFormatter.format(new Date(article.updated))}
+                        {" "}<span className="ahUpdateLabel">(Updated)</span>
+                    </div>
+                )}
             </div>
         </Link>
     );
@@ -74,7 +84,7 @@ const Toc = ({ items }) => {
     // console.log(items);
     return (
         <ul>
-            {items.map(item => (
+            {items.map((item) => (
                 <li key={item.id}>
                     {
                         <a href={`#${item.id}`} key={item.id}>
@@ -96,9 +106,9 @@ Toc.propTypes = {
             id: PropTypes.string.isRequired,
             level: PropTypes.number.isRequired,
             title: PropTypes.string.isRequired,
-            children: PropTypes.array.isRequired
+            children: PropTypes.array.isRequired,
         })
-    )
+    ),
 };
 
 const Article = ({ match }) => {
@@ -117,9 +127,20 @@ const Article = ({ match }) => {
             <div className="articleHeader vbox">
                 <div className="ahMainTitle">{articleData.meta.title}</div>
                 <div className="ahSubTitle">{articleData.meta.subtitle}</div>
-                <div className="ahDate">
-                    {dateFormatter.format(new Date(articleData.meta.date))}
-                </div>
+                {!articleData.meta.updated && (
+                    <div className="ahDate">
+                        {dateFormatter.format(new Date(articleData.meta.date))}
+                    </div>
+                )}
+                {articleData.meta.updated && (
+                    <div className="ahDate">
+                        {/* <span className="ahUpdateLabel">Updated:</span>{" "} */}
+                        {dateFormatter.format(
+                            new Date(articleData.meta.updated)
+                        )}
+                        {" "}<span className="ahUpdateLabel">(Updated)</span>
+                    </div>
+                )}
             </div>
 
             {React.createElement(articleData.default)}

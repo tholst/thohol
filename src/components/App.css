@@ -216,7 +216,7 @@ article img {
     box-sizing: border-box;
 }
 
-.content :first-child {
+.content > :first-child {
     padding-top: 0;
     margin-top: 0;
 }
@@ -251,6 +251,11 @@ article img {
 .peDate,
 .ahDate {
     color: #999;
+}
+
+.peUpdateLabel,
+.ahUpdateLabel {
+    color: #f99
 }
 
 .peDate {
@@ -334,4 +339,29 @@ article img {
 
 
 
+/* code styling */
 
+:not(pre) > code {
+    padding: .1em;
+    margin: 0 .1em;
+    border-radius: .3em;
+    white-space: normal;
+    background: #2d2d2d;
+    color: #ccc;
+    /* background: none; */
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    font-size: 1em;
+    text-align: left;
+    /* white-space: pre; */
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+}
