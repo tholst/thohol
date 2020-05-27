@@ -1,35 +1,39 @@
 ---
-title: Go cheat sheet
-subtitle: Getting started with golang
+title: Go Cheat Sheet
+subtitle: When the Go'ing gets tough, the tough get Go'ing
 date: 2020-02-11
-updated:
-published: false
+updated: 2020-05-27
+published: true
 ---
 
-Most of the examples are adapted from [A Tour of Go](https://tour.golang.org/).
+Below are some notes on the Go language, for my personal reference. 
+
+**Disclaimer**: Most of the examples are adapted from Go's official guide - [A Tour of Go](https://tour.golang.org/).
 
 ## Structure
 
-- Repository --> Module(s) --> Package(s)
-- Package
-    - is a collection of source files
-    - compiled together
-    - definitions (functions, types, variables, constants) are visible within package
-- Module
-    - is a collection of one or more related packages, specifically all packages contained in module root and subdirectories (unless it contains another `go.mod` file)
-    - released together
-    - defined by a `go.mod` file at module root; which declares the **module path**, the import path prefix for all packages within that module
-    - the module path also serves as the download path
-- Repository
-    - is a collection of one (typically) or more modules
-    - typically: repository root = module root
-
+-   Repository --> Module(s) --> Package(s)
+-   Package
+    -   is a collection of source files
+    -   compiled together
+    -   definitions (functions, types, variables, constants) are visible within package
+-   Module
+    -   is a collection of one or more related packages, specifically all packages contained in module root and subdirectories (unless it contains another `go.mod` file)
+    -   released together
+    -   defined by a `go.mod` file at module root; which declares the **module path**, the import path prefix for all packages within that module
+    -   the module path also serves as the download path
+-   Repository
+    -   is a collection of one (typically) or more modules
+    -   typically: repository root = module root
 
 ## Get started
 
 ### 1. Install
 
-on MacOS `brew install go`
+on MacOS :
+```bash
+$ brew install go
+```
 
 ### Optional: Change Go workspace location
 
@@ -54,11 +58,12 @@ go: creating new go.mod: module example.com/go/helloworld
 ### 3. Create your first Go file
 
 1. create the `.go` source file
+
 ```bash
 $ touch hello.go
 ```
 
-2. The first line contains the package name.Assign it to package `main`, because executable files must always use `main`.
+2. The first line contains the package name. Assign it to package `main`, because executable files must always use `main`.
 
 ```go
 package main
@@ -76,13 +81,12 @@ func main()  {
 }
 ```
 
-
 ## Language and Control Structures
 
 ### Package
 
 ```go
-// package <name> 
+// package <name>
 // name "main" for executable package
 package main
 
@@ -105,7 +109,6 @@ func main() {
 #### Exports
 
 Any function, constant or variable with a capital name is **exported** from the package. All others are not exported and therefore not accessible outside the package.
-
 
 ### Variables and Constants
 
@@ -145,34 +148,35 @@ An untyped constant takes the type needed by its context. So potentially, untype
 #### Default (uninitialized) values
 
 The zero value is:
-- `0` for numeric types,
-- `false` for the boolean type, and
-- `""` (the empty string) for strings.
+
+-   `0` for numeric types,
+-   `false` for the boolean type, and
+-   `""` (the empty string) for strings.
 
 #### Basic Types
 
-- **bool**
-- **string**
-- Integer:
-    - **int** (*usually 32 bits wide on 32-bit systems and 64 bits wide on 64-bit systems*)
-    - int8
-    - int16
-    - int32
-    - int64
-    - uint (*usually 32 bits wide on 32-bit systems and 64 bits wide on 64-bit systems*)
-    - uint8
-    - uint16
-    - uint32
-    - uint64
-    - uintptr (*usually 32 bits wide on 32-bit systems and 64 bits wide on 64-bit systems*)
-    - byte // alias for uint8
-    - **rune** // alias for int32, represents a Unicode code point
-- Float:
-    - float32
-    - float64
-- Complex:
-    - complex64
-    - complex128
+-   **bool**
+-   **string**
+-   Integer:
+    -   **int** (_usually 32 bits wide on 32-bit systems and 64 bits wide on 64-bit systems_)
+    -   int8
+    -   int16
+    -   int32
+    -   int64
+    -   uint (_usually 32 bits wide on 32-bit systems and 64 bits wide on 64-bit systems_)
+    -   uint8
+    -   uint16
+    -   uint32
+    -   uint64
+    -   uintptr (_usually 32 bits wide on 32-bit systems and 64 bits wide on 64-bit systems_)
+    -   byte // alias for uint8
+    -   **rune** // alias for int32, represents a Unicode code point
+-   Float:
+    -   float32
+    -   float64
+-   Complex:
+    -   complex64
+    -   complex128
 
 ### Function
 
@@ -225,23 +229,23 @@ for i := 0; i < 10; i++ {
 }
 ```
 
-- `<init stmt>`: 
-    - the *init statement* is executed before the first iteration
-    - typically a variable declaration (often in short form `i := 0`)
-    - variable only visible in for loop
-    - the statement is optional
-- `<cond expr>`: 
-    - the *condition expression* is evaluated *before* every iteration
-    - loop will *stop* once the condition evalues to *false*
-    - optional, will the create infinite loop
+-   `<init stmt>`:
+    -   the _init statement_ is executed before the first iteration
+    -   typically a variable declaration (often in short form `i := 0`)
+    -   variable only visible in for loop
+    -   the statement is optional
+-   `<cond expr>`:
+    -   the _condition expression_ is evaluated _before_ every iteration
+    -   loop will _stop_ once the condition evalues to _false_
+    -   optional, will the create infinite loop
     ```go
     for {
         ...
     }
     ```
-- `<post stmt>`: 
-    - the post statement is executed at the end of every iteration
-    - the statement is optional
+-   `<post stmt>`:
+    -   the post statement is executed at the end of every iteration
+    -   the statement is optional
 
 ### While Loop
 
@@ -278,10 +282,10 @@ if y := 27 * x; y > 55 {
 
 ### Switch
 
-- implicit `break` after each case, no run-through as in other languages
-- but order still matters, the first (top to bottom) matching case will be executed
-- case values can be dynamic expressions and non-integer types
-- variables may be declared that are then only accessible within switch statement
+-   implicit `break` after each case, no run-through as in other languages
+-   but order still matters, the first (top to bottom) matching case will be executed
+-   case values can be dynamic expressions and non-integer types
+-   variables may be declared that are then only accessible within switch statement
 
 ```go
 switch os := runtime.GOOS; os {
@@ -345,8 +349,9 @@ func CopyFile(dstName, srcName string) (written int64, err error) {
 }
 ```
 
-Behavior of deferred statements in  3 rules:
-1. A deferred function's arguments are evaluated when the defer statement is evaluated (read: *when the function is deferred*, NOT *when the deferred function is executed*).
+Behavior of deferred statements in 3 rules:
+
+1. A deferred function's arguments are evaluated when the defer statement is evaluated (read: _when the function is deferred_, NOT _when the deferred function is executed_).
 2. Deferred function calls are executed in Last In First Out order after the surrounding function returns.
 3. Deferred functions may read and assign to the returning function's named return values. The following function will return `2`.
     ```go
@@ -359,15 +364,17 @@ Behavior of deferred statements in  3 rules:
 ### Panic and Recover
 
 Calling `panic(panicValue)` inside a function F has the following effect:
+
 1. Regular control flow is stopped (execution of function is stopped).
 2. All deferred functions are executed regularly (LIFO stack).
 3. Function F returns to its caller and acts like a call to `panic()` there (go back to 1.). If F is the main function, the programm will crash.
 
 Calling `recover()` inside a function F has the following effect:
-- In panic mode:
+
+-   In panic mode:
     1. The panic mode is stopped. When F returns, it will not have panicking effect on its caller.
     2. The call to `recover()` returns the `panicValue` from the call to `panic(panicValue)`.
-- Not in panic mode:
+-   Not in panic mode:
     1. The call to `recover()` returns `nil`. It has no other effect.
 
 Because `recover()` is used to handle an error and its resulting panic mode, a call to `recover()` only makes sense in deferred functions. Otherwise its execution will be skipped due to panic mode.
@@ -440,6 +447,7 @@ a[2] = 2
 
 var b [5]int = [5]int{0,1,2,3,4}
 ```
+
 **Slices**
 
 ```go
@@ -469,3 +477,7 @@ y[:]
 1. Create a file ending in `_test.go` in the same package as the code under test.
 2. `import "testing"`
 3. implement a function `func TestXxx (t *testing.T) {}` where `Xxx` is the name of the test case
+
+## More
+
+More to come. Maybe. [Stay tuned](https://pbs.twimg.com/media/DUyK5XCU0AAMrf0?format=jpg&name=small).
