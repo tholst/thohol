@@ -20,24 +20,13 @@ Below is a quick how-to guide. Note that the explanations are not really specifi
     $ cd my-vue-app
     $ tree -L 2
     .
-    ├── node_modules
-    │   ├── ...
-    ├── public
-    │   ├── favicon.ico
-    │   ├── index.html
-    │   └── silent-check-sso.html
     ├── src
-    │   ├── App.vue
-    │   ├── main.ts
-    │   ├── components
-    │   └── views
-    ├── babel.config.js
+    │   └── (more files here ...)
     ├── package.json
-    ├── package-lock.json
-    └── tsconfig.json
+    └── package-lock.json
     ```
 
-1. Docker installed ([instructions to install](https://docs.docker.com/get-docker/))
+2. Docker installed ([instructions to install](https://docs.docker.com/get-docker/))
 
     ```bash
     $ docker -v
