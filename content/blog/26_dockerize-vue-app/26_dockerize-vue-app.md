@@ -47,7 +47,7 @@ $ code Dockerfile
 
 **What**: In the next steps we will piece together a `Dockerfile` for our Vue.js app.
 
-**Why**: The `Dockerfile` tells docker how to build a docker container which - when we run it - will act as _[static web server](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_is_a_web_server)_ for our Vue.js application.
+**Why**: The `Dockerfile` tells docker how to build a docker image which - when we run it - will act as _[static web server](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_is_a_web_server)_ for our Vue.js application.
 
 **How**: We want to optimize on two dimensions: Image size and image build time.
 
