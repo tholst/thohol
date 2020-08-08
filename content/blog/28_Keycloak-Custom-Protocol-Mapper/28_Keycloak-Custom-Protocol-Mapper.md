@@ -1,6 +1,6 @@
 ---
 title: "Keycloak: custom claims from external systems"
-subtitle: Implementing a Custom Protocol Mapper for authenticated GraphQL queriesq
+subtitle: Implementing a Custom Protocol Mapper for authenticated GraphQL queries
 date: 2020-08-08
 updated:
 published: true
