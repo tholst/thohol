@@ -24,7 +24,7 @@ Dependencies explained:
     -   `webpack-cli`: command-line interface for webpack
     -   `babel-loader`: Loads ES2015+ code and transpiles to ES5 using Babel
     -   `css-loader`: Loads CSS file with resolved imports and returns CSS code
-    -   `eslint-loader`: PreLoader for linting code using ESLint
+    -   `eslint-webpack-plugin`: PreLoader for linting code using ESLint
     -   `html-webpack-plugin`: Creates HTML file from template and injects bundles
     -   `style-loader`: Add exports of a module as style to DOM
     <!-- -   `@mdx-js/loader`: loader for markdown and markdown-with-jsx documents -->
