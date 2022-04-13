@@ -4,7 +4,13 @@ Yes, every proud website needs an About page. Even the little ones. This is it.
 
 ## Who is Thomas
 
-My [linkedIn page](https://www.linkedin.com/in/thomas-holst/) says "Senior Software Developer" - I guess there may be some truth in that. :blush: I am currently working at an [innovation group](https://icn.sap.com/) within [SAP](https://www.sap.com/). I am living in Hamburg, Germany.
+My [linkedIn page](https://www.linkedin.com/in/thomas-holst/) says "Senior Software Developer" - feels weird, but I guess there may be some truth in that. :blush: 
+
+I am *currently* working at [data4life](https://www.data4life.care/) - a nonprofit organization working on healthcare and research solutions. 
+
+*Past positions include* an [innovation group](https://icn.sap.com/) within [SAP](https://www.sap.com/) where we did bottom-up innovation - building new solutions directly with customers in Healthcare - and [dreamIT](https://www.dreamit.de/) where we built a SaaS solution from scratch together with the great colleagues from [Digital Colliers](https://www.digitalcolliers.com/).
+
+I am living in Hamburg, Germany.
 
 ## What is this?
 
