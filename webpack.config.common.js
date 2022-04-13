@@ -1,6 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const GoogleFontsPlugin = require("@beyonk/google-fonts-webpack-plugin");
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = {
     entry: "index.js",
@@ -12,7 +13,6 @@ process.env.NODE_ENV = "development";
 
 module.exports = {
     entry: "./src/index.js",
-    mode: "development",
     output: {
         filename: "bundle.js",
         path: path.resolve(__dirname, "build"),
@@ -23,7 +23,7 @@ module.exports = {
             {
                 test: /\.(js|jsx)$/,
                 exclude: /(node_modules|bower_components)/,
-                loader: ["babel-loader", "eslint-loader"]
+                use: ["babel-loader"]
             },
             {
                 test: /\.val\.js$/,
@@ -104,6 +104,7 @@ module.exports = {
     },
     resolve: { extensions: ["*", ".js", ".jsx"] },
     plugins: [
+        new ESLintPlugin({}),
         new HtmlWebpackPlugin({
             template: "./src/index.html"
             // favicon: "src/favicon.ico"

@@ -3,7 +3,7 @@
 const glob = require("glob");
 const matter = require("gray-matter");
 
-const p = new Promise((resolve, reject) => {
+const p = new Promise((resolve) => {
     glob("content/blog/*/+([0-9])_*.md", function (er, files) {
         // console.log(files.map(matter.read));
         var fm = files
@@ -35,6 +35,6 @@ const p = new Promise((resolve, reject) => {
     });
 });
 
-module.exports = (options, loaderContext) => {
+module.exports = () => {
     return p;
 };

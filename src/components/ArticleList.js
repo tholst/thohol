@@ -5,8 +5,7 @@ import {
     Switch,
     Route,
     Link,
-    useRouteMatch,
-    useParams,
+    useRouteMatch
 } from "react-router-dom";
 
 // syntax highlighting
@@ -62,6 +61,17 @@ const PostEntry = ({ article, linkTo }) => {
             </div>
         </Link>
     );
+};
+
+
+PostEntry.propTypes = {
+    article: PropTypes.shape({
+        updated: PropTypes.string.isRequired,
+        title: PropTypes.string.isRequired,
+        subtitle: PropTypes.string.isRequired,
+        date: PropTypes.string.isRequired,
+    }),
+    linkTo: PropTypes.string.isRequired
 };
 
 const List = () => {
@@ -146,6 +156,14 @@ const Article = ({ match }) => {
             {React.createElement(articleData.default)}
         </article>
     );
+};
+
+Article.propTypes = {
+    match: PropTypes.shape({
+        params: PropTypes.shape({
+            articleId: PropTypes.string.isRequired,
+        }),
+    })
 };
 
 const ArticlesList = () => {
